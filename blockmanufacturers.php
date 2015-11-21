@@ -4,6 +4,9 @@ if (!defined('_PS_VERSION_'))
 
 class BlockManufacturers extends Module
 {
+    /**
+     * Setting default initialization values required by PrestaShop
+     */
     public function __construct()
     {
         $this->name = 'blockmanufacturers';
@@ -54,7 +57,10 @@ class BlockManufacturers extends Module
         return true;
     }
 
-
+    /**
+     * Uninstall the module
+     * @return bool
+     */
     public function uninstall()
     {
         if (!parent::uninstall() ||
