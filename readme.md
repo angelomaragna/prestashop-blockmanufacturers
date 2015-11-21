@@ -4,14 +4,14 @@ This module display a menu containing the list of manufacturers in the left colu
 
 --------
 
-** Requirements
+##Requirements
 
 This module has been developed under and therefore is compatible with PrestaShop 1.6.1.0.
 
 
 --------
 
-** Installation
+##Installation
 
 **IMPORTANT**: to install this package you have to rename the folder _prestashop-blockmanufacturers_ to only _blockmanufacturers_.
 Copy the entire folder under your _PS_ROOT_DIR_/modules and then go to _Control panel_ > _Modules_. Search for "Block Manufacturers List" and click Install.
