@@ -1,6 +1,7 @@
 # Prestashop Block Manufacturers
 
 This module display a menu containing the list of manufacturers in the left column.
+_Note: this project is still a work in progress._
 
 
 
