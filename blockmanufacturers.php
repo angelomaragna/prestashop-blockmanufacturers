@@ -51,10 +51,22 @@ class BlockManufacturers extends Module
             $current_manufacturer_id = Tools::getValue('id_manufacturer');
         }
 
+        $manufacturers = ManufacturerCore::getManufacturers();
+
+        // assigning to each manufacturer his own shop url link
+        if (isset($manufacturers))
+        {
+            $link = new Link();
+            foreach ($manufacturers as $key => $manufacturer)
+            {
+                $manufacturer = new ManufacturerCore($manufacturer['id_manufacturer']);
+                $manufacturers[$key]['link'] = $link->getManufacturerLink($manufacturer);
+            }
+        }
 
         $this->context->smarty->assign(
             array(
-                'manufacturers' => ManufacturerCore::getManufacturers(),
+                'manufacturers' => $manufacturers,
                 'current_manufacturer_id' => $current_manufacturer_id,
             )
         );
