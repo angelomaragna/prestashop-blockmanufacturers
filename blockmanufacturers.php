@@ -28,19 +28,44 @@ class BlockManufacturers extends Module
             $this->warning = $this->l('No name provided');
     }
 
-
+    /**
+     * Display the module content on the left column. Prepares the data and then calls
+     * views/templates/hook/blockmanufacturers.tpl
+     *
+     * @param $params
+     * @return mixed
+     */
     public function hookDisplayLeftColumn($params)
     {
+
+        $current_manufacturer_id = 0;
+
+        if (Tools::getValue('id_product'))
+        {
+            $product = new ProductCore(Tools::getValue('id_product'));
+            $current_manufacturer_id = $product->id_manufacturer;
+        }
+
+        if (Tools::getValue('id_manufacturer'))
+        {
+            $current_manufacturer_id = Tools::getValue('id_manufacturer');
+        }
+
 
         $this->context->smarty->assign(
             array(
                 'manufacturers' => ManufacturerCore::getManufacturers(),
+                'current_manufacturer_id' => $current_manufacturer_id,
             )
         );
+
         return $this->display(__FILE__, 'blockmanufacturers.tpl');
     }
 
-
+    /**
+     * Install the module and register the hooks
+     * @return bool
+     */
     public function install()
     {
         if (Shop::isFeatureActive())
