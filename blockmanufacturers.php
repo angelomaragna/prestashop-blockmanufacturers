@@ -29,22 +29,6 @@ class BlockManufacturers extends Module
     public function hookDisplayLeftColumn($params)
     {
 
-
-//        echo get_class($this).'<br>';
-//        echo '<pre>';
-//        echo var_dump(ManufacturerCore::getManufacturers()).'<br>';
-//        echo '<pre>';
-//        echo print_r(get_class_vars(get_class($this)));
-//        echo print_r(get_class_methods($this));
-
-        if (Tools::getValue('id_product') || Tools::getValue('id_manufacturer'))
-        {
-            echo "houston, we have a situation ";
-            $product = new ProductCore((Tools::getValue('id_product'));
-                $product->getWsManufacturerName()
-            die();
-        }
-
         $this->context->smarty->assign(
             array(
                 'manufacturers' => ManufacturerCore::getManufacturers(),
